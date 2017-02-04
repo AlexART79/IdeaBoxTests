@@ -15,11 +15,11 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 public class BrowserDriver {
 	private static WebDriver mDriver;
 	private static final Logger log = LogManager.getLogger(BrowserDriver.class.getName());
-	
+
 	// factory method to get proper driver (based on cmd-line argument)
 	// supported: firefox, edge, chrome
 	// default driver - ChromeDriver()
-	private static WebDriver GetDriver() {
+	private static WebDriver getDriver() {
 		String drv = System.getProperty("browser", "chrome").toUpperCase();
 		EventFiringWebDriver ed;
 
@@ -36,15 +36,14 @@ public class BrowserDriver {
 
 		return ed;
 	}
-	
+
 	public synchronized static WebDriver getCurrentDriver() {
-		if (mDriver==null) {
+		if (mDriver == null) {
 			try {
-	                	mDriver = GetDriver();
-		        } finally{
-		        	Runtime.getRuntime().addShutdownHook(
-						new Thread(new BrowserCleanup()));
-		        }
+				mDriver = getDriver();
+			} finally {
+				Runtime.getRuntime().addShutdownHook(new Thread(new BrowserCleanup()));
+			}
 		}
 		return mDriver;
 	}
