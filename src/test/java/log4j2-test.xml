@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Properties>
+    <Property name="filename" value="c:/temp/log.log"/>
+  </Properties>
+  
+  <Appenders>
+    <!-- Файловый аппендер -->
+    <File name="file" fileName="${filename}">      
+      <PatternLayout>
+        <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+      </PatternLayout>      
+    </File>
+    <!-- Console appender -->
+    <Console name="STDOUT">
+      <PatternLayout>
+        <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+      </PatternLayout>
+    </Console>
+  </Appenders> 
+    
+  <Loggers>
+    <!-- Корневой логгер -->
+    <Root level="DEBUG">
+      <AppenderRef ref="file" level="INFO"/>
+      <AppenderRef ref="STDOUT" level="DEBUG"/>
+    </Root>
+  </Loggers>
+</Configuration>
