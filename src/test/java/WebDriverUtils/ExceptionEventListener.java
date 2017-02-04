@@ -11,10 +11,10 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
 
-import CucumberTest.CucumberTest.annotation;
+import CucumberTest.CucumberTest.UserLoginSteps;
 
 public class ExceptionEventListener extends AbstractWebDriverEventListener {
-	private static final Logger log = LogManager.getLogger(annotation.class.getName());
+	private static final Logger log = LogManager.getLogger(UserLoginSteps.class.getName());
 	private String test_class_name;
 	
 	public ExceptionEventListener(String name){
